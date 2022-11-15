@@ -1,0 +1,1 @@
+{"id":"4b1d8a72-d618-4607-b41f-cddb37a8e92a","space":38175,"runtime":"python3.9","name":"python_deploy","path":"sg2zej","project":"e0v413ha","account":"144798365827","region":"sa-east-1","deps":["fastapi","requests","uvicorn"],"envs":null,"public":true,"log_level":"off","cron":""}
