@@ -1,17 +1,18 @@
-from Rutas import dolaruta
+import requests
+
+from url import url_dolares
 
 
-def calculate(dolarname:str, dolarunid:int, compraoventa:str):
-    print("Hola")
-    dolardato = dolaruta(dolarname)
+def calculadoradolar(dolarname:str, dolarunid:int, compraoventa:str):
     DolarAComprar = float(dolarunid)
-    if compraoventa.lower() == 'compra':
-        ValorDolarMomento = float(dolardato["compra"].replace(",","."))
-        resultado = DolarAComprar * ValorDolarMomento
-        return resultado
-    elif compraoventa.lower() == 'venta':
-        ValorDolarMomento = float(dolardato["venta"].replace(",","."))
-        resultado = DolarAComprar * ValorDolarMomento
-        return resultado
-    else:
-        return "ERROR 404"
+    for nombredolar, url in url_dolares.items():
+        if f"dolar_{dolarname}".lower() == nombredolar:
+            dato_dolar = {}
+            dato_dolar[nombredolar] = requests.get(url).json()
+            if compraoventa == "compra":
+                ValorDolarMomento = float(dato_dolar[f'dolar_{dolarname}']["compra"].replace(",","."))
+                resultado = DolarAComprar * ValorDolarMomento
+            elif compraoventa == "venta":
+                ValorDolarMomento = float(dato_dolar[f'dolar_{dolarname}']["venta"].replace(",","."))
+                resultado = DolarAComprar * ValorDolarMomento
+    return resultado
