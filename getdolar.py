@@ -6,6 +6,15 @@ from url import url_dolares
 def Getdolar(dolarname):
     for nombredolar, url in url_dolares.items():
         if f'dolar_{dolarname}'.lower() == nombredolar:
-            dato_dolar = {}
-            dato_dolar[nombredolar] = requests.get(url).json()
-    return dato_dolar
+            dollar = requests.get(url).json()
+            currency_data = {
+                'name': nombredolar,
+                'buy': dollar['compra'],
+                'sell': dollar['venta'],
+                'date': dollar['fecha'],
+                'variation': dollar['variacion'],
+                'class-variation': dollar['class-variacion'],
+            }
+    return currency_data
+
+print(Getdolar('turista'))
