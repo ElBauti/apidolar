@@ -1,25 +1,10 @@
 import requests
-
 from url import *
+from currency import *
 
 dolares_json = []
 def Getdolares():
+    dolares_json.clear()
     for nombredolar, url in url_dolares.items():
-        dollar = requests.get(url).json()
-        currency_data = {
-            'name': nombredolar,
-            'buy': dollar['compra'],
-            'sell': dollar['venta'],
-            'date': dollar['fecha'],
-            'variation': dollar['variacion'],
-            'class-variation': dollar['class-variacion'],
-        }
-        dolares_json.append(currency_data)
-    return dolares_json
-
-
-# "compra": "167,89",
-# "venta": "168,09",
-# "fecha": "02/12/2022 - 16:06",
-# "variacion": "0,22%",
-# "class-variacion": "up"
+            dolares_json.append(create(requests.get(url).json(),nombredolar))
+    return  dolares_json

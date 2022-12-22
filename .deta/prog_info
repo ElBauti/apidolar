@@ -1,1 +1,1 @@
-{"id":"06b6f3b4-0f4f-4ce9-8a31-c7b6326359ba","space":38175,"runtime":"python3.9","name":"apidolar","path":"8w1kj1","project":"e0v413ha","account":"144798365827","region":"sa-east-1","deps":["fastapi","requests","uvicorn"],"envs":null,"public":true,"log_level":"off","cron":""}
+{"id":"06b6f3b4-0f4f-4ce9-8a31-c7b6326359ba","space":38175,"runtime":"python3.9","name":"apidolar","path":"8w1kj1","project":"e0v413ha","account":"144798365827","region":"sa-east-1","deps":["fastapi","requests","uvicorn","dateparser"],"envs":null,"public":true,"log_level":"off","cron":""}

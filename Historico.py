@@ -1,7 +1,6 @@
 import requests
 from url import *
-
-
+from currencyhistory import *
 
 def Historicoone(dolarname, time):
     dato_dolar = {}
@@ -9,11 +8,9 @@ def Historicoone(dolarname, time):
         if f'dolar_{dolarname}'.lower() == nombredolar:
             dato_dolar[nombredolar] = requests.get(url).json()
             if time.lower() == "anual":
-                    dato_dolar[nombredolar]["Dolar_Historico_Anual"] = requests.get(url_dolares_historico_anual[nombredolar]).json()
-                    return dato_dolar
+                return createhistory(requests.get(url_dolares_historico_anual[nombredolar]).json())
             elif time.lower() == "mensual":
-                    dato_dolar[nombredolar]["Dolar_Historico_Mensual"] = requests.get(url_dolares_historico_mensual[nombredolar]).json()
-                    return dato_dolar
+                return createhistory(requests.get(url_dolares_historico_mensual[nombredolar]).json())
             elif time.lower() == "semanal":
-                    dato_dolar[nombredolar]["Dolar_Historico_Semanal"] = requests.get(url_dolares_historico_semanal[nombredolar]).json()
-                    return  dato_dolar
+                return createhistory(requests.get(url_dolares_historico_semanal[nombredolar]).json())
+

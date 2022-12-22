@@ -1,12 +1,11 @@
 import requests
 from url import *
+from currencyhistory import *
 
 def Historicoall(dolarname):
-    dato_dolar = {}
     for nombredolar, url in url_dolares.items():
         if f'dolar_{dolarname}'.lower() == nombredolar:
-            dato_dolar[nombredolar] = requests.get(url).json()
-            dato_dolar[nombredolar]["Dolar_Historico_Anual"] = requests.get(url_dolares_historico_anual[nombredolar]).json()
-            dato_dolar[nombredolar]["Dolar_Historico_Mensual"] = requests.get(url_dolares_historico_mensual[nombredolar]).json()
-            dato_dolar[nombredolar]["Dolar_Historico_Semanal"] = requests.get(url_dolares_historico_semanal[nombredolar]).json()
-            return dato_dolar
+    #             'Historico_Mensual': createhistory(requests.get(url_dolares_historico_mensual[nombredolar]).json()),
+    #             'Historico_Semanal': createhistory(requests.get(url_dolares_historico_semanal[nombredolar]).json())
+            Historico_Anual =  createhistory(requests.get(url_dolares_historico_anual[nombredolar]).json())
+    return Historico_Anual
