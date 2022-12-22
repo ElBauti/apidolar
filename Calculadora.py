@@ -3,7 +3,7 @@ import requests
 from url import url_dolares
 
 
-def calculadoradolar(dolarname:str, dolarunid:int, compraoventa:str):
+def Calculadoradolar(dolarname:str, dolarunid:int, compraoventa:str):
     DolarAComprar = float(dolarunid)
     for nombredolar, url in url_dolares.items():
         if f"dolar_{dolarname}".lower() == nombredolar:

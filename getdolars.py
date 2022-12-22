@@ -1,11 +1,10 @@
 import requests
-
 from url import *
+from currency import *
 
 dolares_json = []
 def Getdolares():
+    dolares_json.clear()
     for nombredolar, url in url_dolares.items():
-        dato_dolar = {}
-        dato_dolar[nombredolar] = requests.get(url).json()
-        dolares_json.append(dato_dolar)
-    return dolares_json
+            dolares_json.append(create(requests.get(url).json(),nombredolar))
+    return  dolares_json
